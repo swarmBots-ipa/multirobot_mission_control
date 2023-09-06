@@ -12,7 +12,8 @@ LAUNCH = [
     "ros2 launch multirobot_bringup multirobot_bringup.launch.xml",
     "ros2 run multirobot_formation agent_formation_node",
     "ros2 run multirobot_formation mock_test",
-    "ros2 run multirobot_formation resetPose",]
+    "ros2 run multirobot_formation resetPose",
+    "ros2 run multirobot_formation orchestrator_node",]
 
 OBSERVERS = [
     "ros2 run formation_error_observer main",
@@ -85,23 +86,23 @@ def view():
             with ui.tab_panel(TABS[1]):
                 with ui.card().classes('mt-10 mb-1 w-96 h-56').style('width: 60vw; position: relative'):
                     with ui.row().classes('text-center'):
-                        ui.label("").classes("text-h6 text-muted")
+                        ui.label("Basic functions").classes("text-h6 text-muted")
                         with ui.row():
-                            ui.button('Start Simulator', color='#9312fa', on_click=lambda: start_ros2_launch(LAUNCH[0])).style('color: white; font-size: 20px; padding: 20px 20px; border-radius: 50px;').classes("my-10 items-center")
+                            ui.button('Start Simulation', color='#9312fa', on_click=lambda: start_ros2_launch(LAUNCH[0])).style('color: white; font-size: 20px; padding: 20px 20px; border-radius: 50px;').classes("my-10 items-center")
                             ui.button('Start Formation', color='#9312fa', on_click=lambda: start_ros2_launch(LAUNCH[1])).style('color: white; font-size: 20px; padding: 20px 20px; border-radius: 50px;').classes("my-10 items-center")
-                            
+                            ui.button('Start Orchestration', color='#9312fa', on_click=lambda: start_ros2_launch(LAUNCH[4])).style('color: white; font-size: 20px; padding: 20px 20px; border-radius: 50px;').classes("my-10 items-center")                            
                 with ui.card().classes('mt-10 mb-1 w-96 h-56').style('width: 60vw; position: relative'):
                     with ui.row().classes('text-center'):
-                        ui.label("").classes("text-h6 text-muted")                        
+                        ui.label("Helper functions").classes("text-h6 text-muted")                        
                         with ui.row():
-                            ui.button('Start Navigation', color='#9312fa', on_click=lambda: start_ros2_launch(LAUNCH[2])).style('color: white; font-size: 20px; padding: 20px 20px; border-radius: 50px;').classes("my-10 items-center")
-                            ui.button('Reset Robots', color='#9312fa', on_click=lambda: start_ros2_launch(LAUNCH[3])).style('color: white; font-size: 20px; padding: 20px 20px; border-radius: 50px;').classes("my-10 items-center")
+                            ui.button('Test formation', color='#9312fa', on_click=lambda: start_ros2_launch(LAUNCH[2])).style('color: white; font-size: 20px; padding: 20px 20px; border-radius: 50px;').classes("my-10 items-center")
+                            ui.button('Reset Robot Poses', color='#9312fa', on_click=lambda: start_ros2_launch(LAUNCH[3])).style('color: white; font-size: 20px; padding: 20px 20px; border-radius: 50px;').classes("my-10 items-center")
 
                 with ui.card().classes('mt-10 mb-1 w-96 h-56').style('width: 60vw; position: relative'):
                     with ui.row().classes('text-center'):
-                        ui.label("").classes("text-h6 text-muted")
+                        ui.label("End testing").classes("text-h6 text-muted")
                         with ui.row():
-                            ui.button('Stop Simulator', color='#cb5153', on_click=stop_ros2_launch).style('color: white; font-size: 20px; padding: 20px 20px; border-radius: 50px;').classes("my-10 absolute-center")
+                            ui.button('Stop Simulation', color='#cb5153', on_click=stop_ros2_launch).style('color: white; font-size: 20px; padding: 20px 20px; border-radius: 50px;').classes("my-10 absolute-center")
                             
 
             with ui.tab_panel(TABS[2]):
